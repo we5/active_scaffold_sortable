@@ -5,8 +5,8 @@ module ActionController
       def options_with_as_sortable
         if @options.delete(:active_scaffold_sortable)
           logger.info "active_scaffold_sortable: extending RESTful routes for #{@plural}"
-          @options[:member] ||= {}
-          @options[:member].merge!(:reorder => :post)
+          @options[:collection] ||= {}
+          @options[:collection].merge!(:reorder => :post)
         end
         options_without_as_sortable
       end
