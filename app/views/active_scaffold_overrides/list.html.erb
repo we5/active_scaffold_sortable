@@ -29,7 +29,7 @@
   </div>
 </div>
 
-<%= sortable_element *sort_params %>
+<%= sortable_element *sort_params if active_scaffold_config.actions.include?(:sortable) %>
 
 <script type="text/javascript">
 <% if active_scaffold_config.theme != :default %>

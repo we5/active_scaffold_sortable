@@ -9,8 +9,10 @@
         <%= record.authorized_for?(:action => link.crud_type) ? render_action_link(link, url_options) : "<a class='disabled'>#{link.label}</a>" -%>
       </td>
     <% end -%>
+    <% if active_scaffold_config.actions.include?(:sortable) %>
     <td>
       <%= content_tag :div, image_tag("arrow_move.png"), :class => "mover" %>
     </td>
+    <% end %>
   </tr>
 </table>
