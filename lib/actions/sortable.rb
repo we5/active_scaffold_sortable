@@ -11,16 +11,7 @@ module ActiveScaffold::Actions
       config = base.active_scaffold_config
       config.list.per_page = 9999 # disable pagination
       
-      sortable_plugin_path = File.join(RAILS_ROOT, 'vendor', 'plugins', sortable_plugin_name, 'views')
-      
-      if base.respond_to?(:generic_view_paths) && ! base.generic_view_paths.empty?
-        base.generic_view_paths.insert(0, sortable_plugin_path)
-      elsif base.respond_to?(:view_paths)
-        base.prepend_view_path(sortable_plugin_path)
-      else  
-        config.inherited_view_paths << sortable_plugin_path
-      end
-      
+      base.add_active_scaffold_path File.join(RAILS_ROOT, 'vendor', 'plugins', sortable_plugin_name, 'views')
       
       # turn sorting off
       sortable_column = config.sortable.column.to_sym
